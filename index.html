@@ -103,40 +103,81 @@ td,th{border:1px solid #333;padding:10px}
 </div>
 
 <script>
-const msgs=["Loading Memories...0%","Scanning Previous Night...","Consulting Witnesses...","Searching...","No memories found.","Launching Goldfish Mode..."];
-let i=0;
-const t=setInterval(()=>{
-document.getElementById('status').innerText=msgs[i];
-i++;
-if(i>=msgs.length){
-clearInterval(t);
+const msgs = [
+"Loading Memories...0%",
+"Scanning Previous Night...",
+"Consulting Witnesses...",
+"Searching...",
+"No memories found.",
+"Launching Goldfish Mode..."
+];
 
-document.getElementById('loader').style.display = 'none';
+let i = 0;
 
-document.getElementById('site').classList.remove('hidden');
-document.getElementById('site').style.display = 'block';
+const t = setInterval(() => {
+    document.getElementById('status').innerText = msgs[i];
 
-document.getElementById('song').play().catch(function(){});
-}
+    i++;
+
+    if(i >= msgs.length){
+
+        clearInterval(t);
+
+        document.getElementById('loader').style.display = 'none';
+
+        document.getElementById('site').classList.remove('hidden');
+        document.getElementById('site').style.display = 'block';
+    }
+
 },1200);
 
 function startMusic(){
+
     const song = document.getElementById('song');
 
     song.volume = 1;
+
     song.play();
 
     alert("Launching NashitaOS™");
 }
-const r=["Error 404: Memory Not Found.","Ask the group chat.","Witnesses located.","Recovery impossible.","Goldfish backup unavailable."];
-alert(r[Math.floor(Math.random()*r.length)]);
+
+function recover(){
+
+    const r = [
+    "Error 404: Memory Not Found.",
+    "Ask the group chat.",
+    "Witnesses located.",
+    "Recovery impossible.",
+    "Goldfish backup unavailable.",
+    "Memory overwritten by beer.",
+    "Please consult 3 independent witnesses."
+    ];
+
+    alert(r[Math.floor(Math.random()*r.length)]);
 }
 
-let clicks=0;
-document.getElementById('fish').onclick=function(){
-clicks++;
-if(clicks>=7){alert("Developer Mode Enabled\n0 memories recovered.");clicks=0;}
-}
+let clicks = 0;
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    const fish = document.getElementById('fish');
+
+    if(fish){
+
+        fish.onclick = function(){
+
+            clicks++;
+
+            if(clicks >= 7){
+
+                alert("Developer Mode Enabled\n0 memories recovered.");
+
+                clicks = 0;
+            }
+        };
+    }
+});
 </script>
 </body>
 </html>
