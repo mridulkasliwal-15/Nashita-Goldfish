@@ -106,9 +106,13 @@ document.getElementById('status').innerText=msgs[i];
 i++;
 if(i>=msgs.length){
 clearInterval(t);
-document.getElementById('loader').classList.add('hidden');
+
+document.getElementById('loader').style.display = 'none';
+
 document.getElementById('site').classList.remove('hidden');
-document.getElementById('song').play().catch(()=>{});
+document.getElementById('site').style.display = 'block';
+
+document.getElementById('song').play().catch(function(){});
 }
 },1200);
 
