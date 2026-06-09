@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nashita Pro Max™</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body{
+background:black;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+h1{
+font-size:4rem;
+font-weight:700;
+}
+
+.subtitle{
+font-size:1.5rem;
+color:#999;
+margin-top:10px;
+}
+
+.button{
+margin-top:40px;
+padding:15px 35px;
+border-radius:40px;
+border:none;
+font-size:18px;
+cursor:pointer;
+background:white;
+color:black;
+}
+
+.section{
+padding:120px 20px;
+}
+
+.big{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.stat{
+font-size:5rem;
+font-weight:bold;
+margin-top:20px;
+}
+
+.card{
+max-width:700px;
+margin:30px auto;
+padding:30px;
+background:#111;
+border-radius:20px;
+}
+
+.footer{
+padding:100px 20px;
+color:#777;
+}
+
+.hidden{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<h1>Nashita Pro Max™</h1>
+
+<p class="subtitle">
+Goldfish Memory, Premium Edition
+</p>
+
+<button class="button" onclick="launchExperience()">
+Enter Experience
+</button>
+
+</div>
+
+<div class="section">
+
+<div class="big">
+Forget More. Remember Less.
+</div>
+
+<p>
+Introducing the world's first self-formatting memory system.
+</p>
+
+</div>
+
+<div class="section">
+
+<div class="big">
+Performance
+</div>
+
+<div class="stat">0%</div>
+
+<p>Memory Retention</p>
+
+<br><br>
+
+<div class="stat">100%</div>
+
+<p>Confidence While Recounting Events</p>
+
+</div>
+
+<div class="section">
+
+<div class="card">
+<h2>Features</h2>
+
+<br>
+
+<p>🧠 Automatic Memory Deletion</p>
+<br>
+<p>🍺 Beer Powered Operating System</p>
+<br>
+<p>🔁 Story Repetition Engine</p>
+<br>
+<p>🤡 Clown Mode Included</p>
+<br>
+<p>💼 Corporate NPC Mode</p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="big">
+Official Diagnostic Report
+</div>
+
+<div class="card">
+
+<p>
+Subject Name: Nashita
+</p>
+
+<br>
+
+<p>
+Condition: Goldfish Memory Syndrome
+</p>
+
+<br>
+
+<p>
+Severity: Critical
+</p>
+
+<br>
+
+<p>
+Recovery Probability: Unknown
+</p>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="big">
+Memory Recovery Tool
+</div>
+
+<button class="button" onclick="recoverMemory()">
+What Happened Last Night?
+</button>
+
+</div>
+
+<div class="footer">
+© Nashita Labs 2026
+</div>
+
+<audio id="song">
+<source src="right-round.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function launchExperience(){
+
+let song=document.getElementById("song");
+
+song.play();
+
+alert(
+"WARNING\\n\\nThis product has been linked to severe memory loss after social events."
+);
+
+}
+
+function recoverMemory(){
+
+const responses=[
+
+"Error 404: Memory Not Found.",
+
+"Please contact the friend group for recovery assistance.",
+
+"System Log Deleted.",
+
+"Evidence Exists. Memory Does Not.",
+
+"Nice try."
+];
+
+alert(
+responses[Math.floor(Math.random()*responses.length)]
+);
+
+}
+
+</script>
+
+</body>
+  </html>
