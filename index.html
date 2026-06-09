@@ -27,16 +27,20 @@ td,th{border:1px solid #333;padding:10px}
 <p id="status">Loading Memories...0%</p>
 </div>
 
-<audio id="song" src="right-round.mp3"></audio>
+<audio id="song" src="right-round.mp3" loop></audio>
 
 <div id="site" class="hidden">
 <div class="ticker">NASHDAQ: NSHT | Memory Retention ▼98.7% | Accountability ▼84.2% | Confidence ▲312%</div>
 
 <section class="hero">
-<img id="fish" src="Nashita5.jpg">
+<img id="fish" src="Nashita5.png">
 <h1>NASHITA PRO MAX™</h1>
 <h3>Goldfish Memory, Premium Edition</h3>
 <p>Forget More. Remember Less.</p>
+
+<button onclick="startMusic()" class="btn">
+▶ ENTER EXPERIENCE
+</button>
 </section>
 
 <section class="section">
@@ -63,7 +67,7 @@ td,th{border:1px solid #333;padding:10px}
 <img src="Nashita2.jpg">
 <img src="Nashita3.jpg">
 <img src="Nashita4.jpg">
-<img src="Nashita5.jpg">
+<img src="Nashita5.png">
 <img src="Nashita6.jpg">
 <img src="Nashita7.jpg">
 </div>
@@ -116,7 +120,14 @@ document.getElementById('song').play().catch(function(){});
 }
 },1200);
 
-function recover(){
+function startMusic(){
+    const song = document.getElementById('song');
+
+    song.volume = 1;
+    song.play();
+
+    alert("Launching NashitaOS™");
+}
 const r=["Error 404: Memory Not Found.","Ask the group chat.","Witnesses located.","Recovery impossible.","Goldfish backup unavailable."];
 alert(r[Math.floor(Math.random()*r.length)]);
 }
