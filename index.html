@@ -19,15 +19,26 @@ scroll-behavior:smooth;
 }
 
 body{
+
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
 background:
-radial-gradient(circle at top,
-#1b2f55 0%,
-#0d1526 30%,
-#050505 70%,
-#000000 100%);
+linear-gradient(
+180deg,
+#10264a 0%,
+#0d1f3b 20%,
+#09152b 40%,
+#06101f 60%,
+#040812 80%,
+#020407 100%
+);
+
+background-attachment:fixed;
+
 color:white;
+
 overflow-x:hidden;
+
 }
 
 .hidden{
@@ -35,44 +46,62 @@ display:none;
 }
 
 #loader{
+
 position:fixed;
 inset:0;
+
 background:black;
+
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
+
 z-index:99999;
+
 }
 
 #loader h2{
+
 font-size:2rem;
 margin-bottom:15px;
+
 }
 
 #loader p{
-font-size:1.1rem;
+
 opacity:.8;
+
 }
 
 .ticker{
+
 position:sticky;
 top:0;
+
 z-index:1000;
 
-background:rgba(10,10,15,.75);
-backdrop-filter:blur(12px);
+background:rgba(10,10,20,.78);
 
-padding:14px;
+backdrop-filter:blur(18px);
+
+padding:15px;
 
 text-align:center;
-font-weight:bold;
+
+font-weight:700;
+
 letter-spacing:1px;
 
 border-bottom:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.3);
+
 }
 
 .hero{
+
 min-height:100vh;
 
 display:flex;
@@ -82,20 +111,24 @@ align-items:center;
 
 text-align:center;
 
-padding:60px 20px;
+padding:80px 20px;
+
 }
 
 .hero img{
 
-width:min(420px,85vw);
+width:min(430px,85vw);
 
-border-radius:35px;
+border-radius:32px;
 
 box-shadow:
-0 0 60px rgba(0,180,255,.25),
-0 0 120px rgba(0,120,255,.15);
+0 0 40px rgba(0,160,255,.25),
+0 0 120px rgba(0,100,255,.15);
 
-animation:floatFish 4s ease-in-out infinite;
+animation:floatFish 5s ease-in-out infinite;
+
+cursor:pointer;
+
 }
 
 @keyframes floatFish{
@@ -105,7 +138,7 @@ transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-12px);
+transform:translateY(-15px);
 }
 
 100%{
@@ -115,65 +148,94 @@ transform:translateY(0px);
 }
 
 .hero h1{
-font-size:clamp(3rem,9vw,6rem);
+
+font-size:clamp(3rem,10vw,6rem);
+
+font-weight:900;
+
 margin-top:25px;
-font-weight:800;
+
 }
 
 .hero h2{
-font-size:clamp(1.4rem,4vw,2rem);
-opacity:.9;
+
 margin-top:10px;
+
+opacity:.9;
+
+font-size:clamp(1.3rem,4vw,2rem);
+
 }
 
 .hero p{
+
 max-width:700px;
-margin-top:20px;
-font-size:1.15rem;
+
+margin-top:18px;
+
+font-size:1.1rem;
+
 opacity:.85;
+
 }
 
 .btn{
 
 margin-top:25px;
 
-padding:14px 28px;
+padding:15px 32px;
 
 border:none;
+
 border-radius:999px;
 
 cursor:pointer;
 
 font-size:1rem;
-font-weight:700;
+
+font-weight:800;
 
 background:white;
+
 color:black;
 
 transition:.25s;
+
 }
 
 .btn:hover{
-transform:translateY(-2px);
+
+transform:translateY(-3px);
+
 }
 
 .section{
+
 max-width:1300px;
+
 margin:auto;
-padding:80px 20px;
+
+padding:90px 20px;
+
 }
 
 .section-title{
+
 text-align:center;
-font-size:clamp(2rem,5vw,4rem);
-margin-bottom:40px;
+
+font-size:clamp(2.2rem,6vw,4.5rem);
+
+margin-bottom:45px;
+
+font-weight:900;
+
 }
 
 .card{
 
 background:rgba(255,255,255,.06);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(18px);
 
 border:1px solid rgba(255,255,255,.08);
 
@@ -182,7 +244,8 @@ border-radius:28px;
 padding:25px;
 
 box-shadow:
-0 10px 40px rgba(0,0,0,.25);
+0 15px 45px rgba(0,0,0,.25);
+
 }
 
 .grid{
@@ -192,33 +255,46 @@ display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(250px,1fr));
 
-gap:20px;
+gap:22px;
+
 }
 
 .metric{
 
 text-align:center;
+
 }
 
 .metric h3{
+
 font-size:3rem;
+
 margin-bottom:10px;
+
 }
 
 .metric p{
+
 opacity:.8;
+
 }
 
 .news-card{
 
-text-align:center;
 max-width:900px;
+
 margin:auto;
+
+text-align:center;
+
 }
 
 .news-card p{
+
 margin-top:15px;
+
 opacity:.85;
+
 }
 
 .vault-grid{
@@ -226,60 +302,83 @@ opacity:.85;
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(260px,1fr));
+repeat(auto-fit,minmax(280px,1fr));
 
-gap:22px;
+gap:24px;
+
 }
 
 .case-card{
 
 background:rgba(255,255,255,.05);
 
-border-radius:22px;
+border-radius:24px;
 
 overflow:hidden;
 
-transition:.25s;
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
+
 }
 
 .case-card:hover{
-transform:translateY(-5px);
+
+transform:
+translateY(-8px)
+scale(1.02);
+
 }
 
 .case-card img{
 
 width:100%;
-height:320px;
-object-fit:cover;
+
+height:auto;
+
 display:block;
+
 }
 
 .case-info{
+
 padding:18px;
+
 }
 
 .case-info h3{
+
 margin-bottom:8px;
+
 }
 
 .case-info p{
-opacity:.75;
-line-height:1.5;
+
+line-height:1.6;
+
+opacity:.78;
+
 }
 
 .timeline{
 
 max-width:900px;
+
 margin:auto;
+
 }
 
 .timeline-item{
 
 position:relative;
 
-margin:25px 0;
+padding-left:30px;
 
-padding-left:25px;
+margin:30px 0;
+
 }
 
 .timeline-item::before{
@@ -291,26 +390,38 @@ position:absolute;
 left:0;
 top:8px;
 
-width:12px;
-height:12px;
+width:14px;
+height:14px;
 
 border-radius:50%;
 
 background:#5aa7ff;
+
+box-shadow:
+0 0 20px #5aa7ff;
+
 }
 
 .timeline-item h3{
+
 margin-bottom:6px;
+
+font-size:2rem;
+
 }
 
 .timeline-item p{
+
 opacity:.8;
+
 }
 
 .nashgpt-box{
 
 max-width:900px;
+
 margin:auto;
+
 }
 
 .nashgpt-box input{
@@ -320,27 +431,32 @@ width:100%;
 padding:16px;
 
 border:none;
+
 border-radius:16px;
+
+font-size:1rem;
 
 margin-top:15px;
 margin-bottom:15px;
 
-font-size:1rem;
 }
 
 .nashgpt-answer{
 
 margin-top:15px;
-opacity:.9;
+
+font-size:1.1rem;
+
 }
 
 footer{
 
 text-align:center;
 
-padding:100px 20px;
+padding:120px 20px;
 
 opacity:.85;
+
 }
 
 #newsModal{
@@ -351,23 +467,14 @@ position:fixed;
 
 inset:0;
 
-background:rgba(0,0,0,.96);
+background:rgba(0,0,0,.95);
 
 z-index:100000;
 
+padding:25px;
+
 overflow:auto;
 
-padding:30px;
-}
-
-#newsModal video{
-
-width:100%;
-max-width:900px;
-
-display:block;
-
-margin:auto;
 }
 
 .modal-inner{
@@ -377,24 +484,81 @@ max-width:1000px;
 margin:auto;
 
 text-align:center;
+
+}
+
+#newsModal video{
+
+width:100%;
+
+max-width:900px;
+
+border-radius:20px;
+
+margin:auto;
+
+display:block;
+
 }
 
 .close-btn{
 
 margin-top:20px;
+
+}
+
+#imageModal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.95);
+
+z-index:999999;
+
+justify-content:center;
+align-items:center;
+
+padding:20px;
+
+}
+
+#imageModal img{
+
+max-width:95%;
+max-height:95%;
+
+border-radius:22px;
+
+box-shadow:
+0 0 50px rgba(255,255,255,.15);
+
 }
 
 @media(max-width:700px){
 
 .hero h1{
-font-size:3rem;
-}
 
-.case-card img{
-height:250px;
-}
+font-size:3.3rem;
 
 }
+
+.section{
+
+padding:70px 18px;
+
+}
+
+.section-title{
+
+font-size:2.6rem;
+
+}
+
+  }
 
 </style>
 </head>
@@ -1091,15 +1255,10 @@ CLOSE REPORT
 const loadingMessages = [
 
 "Loading Memories...0%",
-
 "Scanning Previous Night...",
-
 "Consulting Witnesses...",
-
 "Searching...",
-
 "No memories found.",
-
 "Launching Goldfish Mode..."
 
 ];
@@ -1113,52 +1272,55 @@ loadingMessages[loadingIndex];
 
 loadingIndex++;
 
-if(
-loadingIndex >=
-loadingMessages.length
-){
+if(loadingIndex >= loadingMessages.length){
 
 clearInterval(loaderTimer);
 
-document.getElementById(
-"loader"
-).style.display="none";
+document.getElementById("loader").style.display="none";
 
-document.getElementById(
-"site"
-).classList.remove(
-"hidden"
-);
+document.getElementById("site").classList.remove("hidden");
 
 }
 
 },1200);
 
+
+
 function startMusic(){
 
 const song =
-document.getElementById(
-"song"
-);
+document.getElementById("song");
 
 song.volume = 1;
 
 song.play().catch(()=>{});
 
+alert(
+"NashitaOS™ Activated\n\nMemory Retention: 0%\nConfidence: 100%\nWitnesses Required: YES"
+);
+
+window.scrollTo({
+
+top:window.innerHeight,
+
+behavior:"smooth"
+
+});
+
 }
+
+
 
 function openNews(){
 
 const song =
-document.getElementById(
-"song"
-);
+document.getElementById("song");
 
 song.pause();
 
 document.getElementById(
 "newsModal"
-).style.display="block";
+).style.display = "block";
 
 const video =
 document.getElementById(
@@ -1171,6 +1333,8 @@ video.play();
 
 }
 
+
+
 function closeNews(){
 
 const video =
@@ -1182,7 +1346,7 @@ video.pause();
 
 document.getElementById(
 "newsModal"
-).style.display="none";
+).style.display = "none";
 
 document.getElementById(
 "song"
@@ -1190,23 +1354,20 @@ document.getElementById(
 
 }
 
+
+
 function recover(){
 
 const responses = [
 
 "Error 404: Memory Not Found.",
-
 "Please consult witnesses.",
-
 "Group chat archives available.",
-
 "Goldfish backup unavailable.",
-
 "Recovery impossible.",
-
 "Witness statements located.",
-
-"Memory overwritten by BeerOS™."
+"Memory overwritten by BeerOS™.",
+"Please ask literally anyone else."
 
 ];
 
@@ -1214,8 +1375,7 @@ alert(
 
 responses[
 Math.floor(
-Math.random()
-*
+Math.random() *
 responses.length
 )
 ]
@@ -1224,23 +1384,20 @@ responses.length
 
 }
 
+
+
 function askGPT(){
 
 const answers = [
 
 "Subject does not recall.",
-
 "Insufficient memory data.",
-
 "Please consult witnesses.",
-
 "Group chat archives recommended.",
-
 "Memory overwritten by beer.",
-
 "Confidence high. Accuracy low.",
-
-"Historical records unavailable."
+"Historical records unavailable.",
+"Version mismatch between story and reality."
 
 ];
 
@@ -1250,52 +1407,44 @@ document.getElementById(
 
 answers[
 Math.floor(
-Math.random()
-*
+Math.random() *
 answers.length
 )
 ];
 
 }
 
+
+
 let fishClicks = 0;
+
+
 
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
 const fish =
-document.getElementById(
-"fish"
-);
+document.getElementById("fish");
 
 if(fish){
 
-fish.onclick =
-function(){
+fish.onclick = function(){
 
 fishClicks++;
 
-if(
-fishClicks === 7
-){
+if(fishClicks === 7){
 
 alert(
-
 "Developer Mode Enabled\n\nRecovered Memories: 0"
-
 );
 
 }
 
-if(
-fishClicks === 20
-){
+if(fishClicks === 20){
 
 alert(
-
 "Achievement Unlocked:\nProfessional Forgetter"
-
 );
 
 }
@@ -1304,9 +1453,77 @@ alert(
 
 }
 
-}
-);
 
+
+/* IMAGE POPUP CARDS */
+
+document
+.querySelectorAll(".case-card")
+.forEach(card=>{
+
+card.addEventListener("click",function(){
+
+const old =
+document.querySelector(".mega-card");
+
+if(old){
+old.remove();
+}
+
+const clone =
+this.cloneNode(true);
+
+clone.classList.add("mega-card");
+
+clone.style.position="fixed";
+clone.style.left="50%";
+clone.style.top="50%";
+clone.style.transform="translate(-50%,-50%)";
+clone.style.width="90%";
+clone.style.maxWidth="500px";
+clone.style.zIndex="999999";
+clone.style.background="#111";
+clone.style.boxShadow="0 0 60px rgba(0,0,0,.8)";
+clone.style.borderRadius="25px";
+
+document.body.appendChild(clone);
+
+clone.onclick=function(e){
+
+e.stopPropagation();
+
+clone.remove();
+
+};
+
+});
+
+});
+
+
+
+document.addEventListener(
+"click",
+function(e){
+
+if(
+!e.target.closest(".mega-card") &&
+!e.target.closest(".case-card")
+){
+
+const old =
+document.querySelector(".mega-card");
+
+if(old){
+old.remove();
+}
+
+}
+
+});
+
+});
+  
 </script>
 
 </body>
