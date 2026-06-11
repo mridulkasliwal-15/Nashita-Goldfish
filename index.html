@@ -1,183 +1,1314 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nashita Pro Max™</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nashita Pro Max™ | Goldfish Memory Premium Edition</title>
+
 <style>
-body{margin:0;background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
-#loader{position:fixed;inset:0;background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999}
-.hidden{display:none}
-.hero{text-align:center;padding:80px 20px}
-.hero img{max-width:320px;width:80%;border-radius:20px}
-h1{font-size:4rem;margin:10px 0}
-.section{padding:60px 20px;max-width:1100px;margin:auto}
-.card{background:#111;padding:20px;border-radius:18px;margin:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.gallery img{width:100%;border-radius:15px}
-.btn{padding:14px 28px;border:none;border-radius:30px;font-size:18px;cursor:pointer}
-.ticker{position:sticky;top:0;background:#111;padding:10px;text-align:center}
-table{width:100%;border-collapse:collapse}
-td,th{border:1px solid #333;padding:10px}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:
+radial-gradient(circle at top,
+#1b2f55 0%,
+#0d1526 30%,
+#050505 70%,
+#000000 100%);
+color:white;
+overflow-x:hidden;
+}
+
+.hidden{
+display:none;
+}
+
+#loader{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+}
+
+#loader h2{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+#loader p{
+font-size:1.1rem;
+opacity:.8;
+}
+
+.ticker{
+position:sticky;
+top:0;
+z-index:1000;
+
+background:rgba(10,10,15,.75);
+backdrop-filter:blur(12px);
+
+padding:14px;
+
+text-align:center;
+font-weight:bold;
+letter-spacing:1px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.hero{
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding:60px 20px;
+}
+
+.hero img{
+
+width:min(420px,85vw);
+
+border-radius:35px;
+
+box-shadow:
+0 0 60px rgba(0,180,255,.25),
+0 0 120px rgba(0,120,255,.15);
+
+animation:floatFish 4s ease-in-out infinite;
+}
+
+@keyframes floatFish{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.hero h1{
+font-size:clamp(3rem,9vw,6rem);
+margin-top:25px;
+font-weight:800;
+}
+
+.hero h2{
+font-size:clamp(1.4rem,4vw,2rem);
+opacity:.9;
+margin-top:10px;
+}
+
+.hero p{
+max-width:700px;
+margin-top:20px;
+font-size:1.15rem;
+opacity:.85;
+}
+
+.btn{
+
+margin-top:25px;
+
+padding:14px 28px;
+
+border:none;
+border-radius:999px;
+
+cursor:pointer;
+
+font-size:1rem;
+font-weight:700;
+
+background:white;
+color:black;
+
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.section{
+max-width:1300px;
+margin:auto;
+padding:80px 20px;
+}
+
+.section-title{
+text-align:center;
+font-size:clamp(2rem,5vw,4rem);
+margin-bottom:40px;
+}
+
+.card{
+
+background:rgba(255,255,255,.06);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:28px;
+
+padding:25px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.25);
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+}
+
+.metric{
+
+text-align:center;
+}
+
+.metric h3{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.metric p{
+opacity:.8;
+}
+
+.news-card{
+
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+.news-card p{
+margin-top:15px;
+opacity:.85;
+}
+
+.vault-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:22px;
+}
+
+.case-card{
+
+background:rgba(255,255,255,.05);
+
+border-radius:22px;
+
+overflow:hidden;
+
+transition:.25s;
+}
+
+.case-card:hover{
+transform:translateY(-5px);
+}
+
+.case-card img{
+
+width:100%;
+height:320px;
+object-fit:cover;
+display:block;
+}
+
+.case-info{
+padding:18px;
+}
+
+.case-info h3{
+margin-bottom:8px;
+}
+
+.case-info p{
+opacity:.75;
+line-height:1.5;
+}
+
+.timeline{
+
+max-width:900px;
+margin:auto;
+}
+
+.timeline-item{
+
+position:relative;
+
+margin:25px 0;
+
+padding-left:25px;
+}
+
+.timeline-item::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:8px;
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+background:#5aa7ff;
+}
+
+.timeline-item h3{
+margin-bottom:6px;
+}
+
+.timeline-item p{
+opacity:.8;
+}
+
+.nashgpt-box{
+
+max-width:900px;
+margin:auto;
+}
+
+.nashgpt-box input{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+border-radius:16px;
+
+margin-top:15px;
+margin-bottom:15px;
+
+font-size:1rem;
+}
+
+.nashgpt-answer{
+
+margin-top:15px;
+opacity:.9;
+}
+
+footer{
+
+text-align:center;
+
+padding:100px 20px;
+
+opacity:.85;
+}
+
+#newsModal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.96);
+
+z-index:100000;
+
+overflow:auto;
+
+padding:30px;
+}
+
+#newsModal video{
+
+width:100%;
+max-width:900px;
+
+display:block;
+
+margin:auto;
+}
+
+.modal-inner{
+
+max-width:1000px;
+
+margin:auto;
+
+text-align:center;
+}
+
+.close-btn{
+
+margin-top:20px;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.case-card img{
+height:250px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
+
 <div id="loader">
-<h2>Initializing NashitaOS...</h2>
-<p id="status">Loading Memories...0%</p>
+
+<h2>Initializing NashitaOS™</h2>
+
+<p id="status">
+Loading Memories...0%
+</p>
+
 </div>
 
-<audio id="song" src="right-round.mp3" loop></audio>
+<audio
+id="song"
+src="right-round.mp3"
+loop>
+</audio>
 
 <div id="site" class="hidden">
-<div class="ticker">NASHDAQ: NSHT | Memory Retention ▼98.7% | Accountability ▼84.2% | Confidence ▲312%</div>
+
+<div class="ticker">
+
+NASHDAQ: NSHT |
+Memory Retention ▼ 98.7% |
+Confidence ▲ 312% |
+Witness Dependency ▲ 1000%
+
+</div>
 
 <section class="hero">
-<img id="fish" src="Nashita5.png">
+
+<img
+id="fish"
+src="Nashita5.png"
+alt="Goldfish Memory Premium Edition">
+
 <h1>NASHITA PRO MAX™</h1>
-<h3>Goldfish Memory, Premium Edition</h3>
-<p>Forget More. Remember Less.</p>
 
-<button onclick="startMusic()" class="btn">
+<h2>
+Goldfish Memory. Premium Edition.
+</h2>
+
+<p>
+
+The most advanced memory deletion
+system ever created.
+
+Powered by BeerOS™,
+WitnessCloud™
+and poor decision making.
+
+</p>
+
+<button
+class="btn"
+onclick="startMusic()">
+
 ▶ ENTER EXPERIENCE
+
 </button>
+
 </section>
 
 <section class="section">
-<div class="card">
-<h2>The most advanced memory deletion system ever created.</h2>
-<p>Powered by BeerOS™, WitnessCloud™ and extremely poor data retention.</p>
+
+<div class="card news-card">
+
+<h2>
+🚨 BREAKING NEWS CENTER
+</h2>
+
+<p>
+
+Local authorities confirm
+another major memory retention
+incident involving Nashita.
+
+</p>
+
+<button
+class="btn"
+onclick="openNews()">
+
+WATCH REPORT
+
+</button>
+
 </div>
+
 </section>
 
 <section class="section">
-<h2>Performance Benchmarks</h2>
+
+<h2 class="section-title">
+
+Performance Benchmarks
+
+</h2>
+
 <div class="grid">
-<div class="card"><h3>Memory Retention</h3><h1>0%</h1></div>
-<div class="card"><h3>Confidence</h3><h1>100%</h1></div>
-<div class="card"><h3>Story Repetition</h3><h1>∞</h1></div>
-<div class="card"><h3>Reality Accuracy</h3><h1>?</h1></div>
-</div>
-</section>
 
+<div class="card metric">
+
+<h3>0%</h3>
+<p>Memory Retention</p>
+
+</div>
+
+<div class="card metric">
+
+<h3>100%</h3>
+<p>Confidence</p>
+
+</div>
+
+<div class="card metric">
+
+<h3>∞</h3>
+<p>Story Repetition</p>
+
+</div>
+
+<div class="card metric">
+
+<h3>Critical</h3>
+<p>Witness Dependency</p>
+
+</div>
+
+</div>
+
+</section>
 <section class="section">
-<h2>Evidence Archive</h2>
-<div class="grid gallery">
+
+<h2 class="section-title">
+
+MEMORY VAULT™
+
+</h2>
+
+<div class="vault-grid">
+
+<div class="case-card">
+
 <img src="Nashita1.jpg">
+
+<div class="case-info">
+
+<h3>Case File #001</h3>
+
+<p>
+Subject claims everything was under control.
+Witnesses disagree.
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
 <img src="Nashita2.jpg">
+
+<div class="case-info">
+
+<h3>Case File #002</h3>
+
+<p>
+Independent review determined
+that confidence remained high
+despite evidence.
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
 <img src="Nashita3.jpg">
+
+<div class="case-info">
+
+<h3>Case File #003</h3>
+
+<p>
+Story repeated multiple times.
+Accuracy could not be verified.
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
 <img src="Nashita4.png">
+
+<div class="case-info">
+
+<h3>Case File #004</h3>
+
+<p>
+Memory retention unavailable
+during recording.
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
 <img src="Nashita5.png">
+
+<div class="case-info">
+
+<h3>Case File #005</h3>
+
+<p>
+Official company mascot.
+Research concluded the resemblance
+was statistically significant.
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
 <img src="Nashita6.png">
+
+<div class="case-info">
+
+<h3>Case File #006</h3>
+
+<p>
+Subject appeared operational.
+Memory system did not.
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
 <img src="Nashita7.png">
+
+<div class="case-info">
+
+<h3>Case File #007</h3>
+
+<p>
+Further investigation requested.
+Subject unable to recall incident.
+</p>
+
 </div>
+
+</div>
+
+<div class="case-card">
+
+<img src="Nashita8.jpg">
+
+<div class="case-info">
+
+<h3>System Diagnostics™</h3>
+
+<p>
+
+Battery: 12%
+
+Memory: 0%
+
+Awareness:
+Loading...
+
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
+<img src="Nashita9.jpg">
+
+<div class="case-info">
+
+<h3>Official Brand Ambassador™</h3>
+
+<p>
+
+Independent auditors were unable
+to determine how this happened.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
+<img src="Nashita10.jpg">
+
+<div class="case-info">
+
+<h3>Witness Protection Program™</h3>
+
+<p>
+
+Following repeated incidents,
+subject was relocated
+to an undisclosed location.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="case-card">
+
+<img src="Nashita11.jpg">
+
+<div class="case-info">
+
+<h3>Factory Reset Procedure™</h3>
+
+<p>
+
+Engineers attempt emergency reboot
+after Goldfish Mode™ activated.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section class="section">
-<h2>Scientific Comparison</h2>
-<table>
-<tr><th>Feature</th><th>Goldfish</th><th>Nashita</th></tr>
-<tr><td>Remembers yesterday</td><td>Sometimes</td><td>No</td></tr>
-<tr><td>Requires witnesses</td><td>No</td><td>Always</td></tr>
-<tr><td>Reliable information source</td><td>Usually</td><td>Never</td></tr>
-</table>
+
+<h2 class="section-title">
+
+Incident Timeline
+
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>2022</h3>
+
+<p>
+First documented memory irregularities.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>2023</h3>
+
+<p>
+Witnesses become primary storage medium.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>2024</h3>
+
+<p>
+Goldfish comparisons officially begin.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>2025</h3>
+
+<p>
+Critical retention failure detected.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>2026</h3>
+
+<p>
+Nashita Pro Max™ launched publicly.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
 <section class="section">
+
+<div class="card nashgpt-box">
+
+<h2>
+
+NashGPT™
+
+</h2>
+
+<p>
+
+Powered by Artificial Forgetfulness.
+
+</p>
+
+<input
+id="question"
+placeholder="What happened last night?">
+
+<button
+class="btn"
+onclick="askGPT()">
+
+Ask NashGPT™
+
+</button>
+
+<div
+id="answer"
+class="nashgpt-answer">
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="grid">
+
 <div class="card">
-<h2>Customer Reviews</h2>
-<p>★★★★★ "The memories exist. The owner does not."</p>
-<p>★★★★★ "Group chat storage proved more reliable."</p>
-<p>★★★★★ "I've met goldfish with stronger recall."</p>
+
+<h2>
+Scientific Finding #1
+</h2>
+
+<p>
+
+Testing suggests certain goldfish
+may outperform the subject in
+memory retention.
+
+</p>
+
 </div>
+
+<div class="card">
+
+<h2>
+Scientific Finding #2
+</h2>
+
+<p>
+
+Group chat records proved more
+reliable than eyewitness testimony
+from the subject.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+Scientific Finding #3
+</h2>
+
+<p>
+
+Confidence remained unaffected
+by accuracy levels.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+Scientific Finding #4
+</h2>
+
+<p>
+
+The global population continues
+operating normally regardless
+of subject availability.
+
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" style="text-align:center">
-<button class="btn" onclick="recover()">RECOVER LAST NIGHT'S MEMORIES</button>
+<section class="section">
+
+<div class="card">
+
+<h2>
+
+Customer Reviews
+
+</h2>
+
+<br>
+
+<p>
+
+★★★★★
+"The memories exist.
+The owner does not."
+
+</p>
+
+<br>
+
+<p>
+
+★★★★★
+"We reconstructed the evening
+entirely from witness testimony."
+
+</p>
+
+<br>
+
+<p>
+
+★★★★★
+"I've met goldfish with
+stronger recall."
+
+</p>
+
+<br>
+
+<p>
+
+★★★★★
+"Software rebooted.
+Data did not."
+
+</p>
+
+</div>
+
 </section>
 
-<footer class="section" style="text-align:center">
-<h2>Nashita Shanghai GoldFish™</h2>
-<p>All memories were reserved. They are no longer available.</p>
+<section class="section">
+
+<div
+class="card"
+style="text-align:center">
+
+<h2>
+
+Memory Recovery Lab™
+
+</h2>
+
+<p>
+
+Attempt recovery of lost memories.
+
+</p>
+
+<button
+class="btn"
+onclick="recover()">
+
+RECOVER LAST NIGHT'S MEMORIES
+
+</button>
+
+</div>
+
+</section>
+<footer>
+
+<h2>
+
+Nashita Shanghai GoldFish™
+
+</h2>
+
+<br>
+
+<p>
+
+Think Different.
+
+Forget Everything.
+
+</p>
+
+<br>
+
+<p>
+
+© 2026 Nashita Shanghai GoldFish™
+
+</p>
+
+<br>
+
+<p>
+
+All memories were reserved.
+
+They are no longer available.
+
+</p>
+
 </footer>
+
+</div>
+
+<div id="newsModal">
+
+<div class="modal-inner">
+
+<h1>
+
+🚨 BREAKING NEWS 🚨
+
+</h1>
+
+<br>
+
+<p>
+
+Exclusive report regarding
+the latest Nashita incident.
+
+</p>
+
+<br>
+
+<video
+id="reporterVideo"
+controls>
+
+<source
+src="reporter.mp4"
+type="video/mp4">
+
+</video>
+
+<button
+class="btn close-btn"
+onclick="closeNews()">
+
+CLOSE REPORT
+
+</button>
+
+</div>
+
 </div>
 
 <script>
-const msgs = [
+
+const loadingMessages = [
+
 "Loading Memories...0%",
+
 "Scanning Previous Night...",
+
 "Consulting Witnesses...",
+
 "Searching...",
+
 "No memories found.",
+
 "Launching Goldfish Mode..."
+
 ];
 
-let i = 0;
+let loadingIndex = 0;
 
-const t = setInterval(() => {
-    document.getElementById('status').innerText = msgs[i];
+const loaderTimer = setInterval(()=>{
 
-    i++;
+document.getElementById("status").innerText =
+loadingMessages[loadingIndex];
 
-    if(i >= msgs.length){
+loadingIndex++;
 
-        clearInterval(t);
+if(
+loadingIndex >=
+loadingMessages.length
+){
 
-        document.getElementById('loader').style.display = 'none';
+clearInterval(loaderTimer);
 
-        document.getElementById('site').classList.remove('hidden');
-        document.getElementById('site').style.display = 'block';
-    }
+document.getElementById(
+"loader"
+).style.display="none";
+
+document.getElementById(
+"site"
+).classList.remove(
+"hidden"
+);
+
+}
 
 },1200);
 
 function startMusic(){
 
-    const song = document.getElementById('song');
+const song =
+document.getElementById(
+"song"
+);
 
-    song.volume = 1;
+song.volume = 1;
 
-    song.play();
+song.play().catch(()=>{});
 
-    alert("Launching NashitaOS™");
+}
+
+function openNews(){
+
+const song =
+document.getElementById(
+"song"
+);
+
+song.pause();
+
+document.getElementById(
+"newsModal"
+).style.display="block";
+
+const video =
+document.getElementById(
+"reporterVideo"
+);
+
+video.currentTime = 0;
+
+video.play();
+
+}
+
+function closeNews(){
+
+const video =
+document.getElementById(
+"reporterVideo"
+);
+
+video.pause();
+
+document.getElementById(
+"newsModal"
+).style.display="none";
+
+document.getElementById(
+"song"
+).play().catch(()=>{});
+
 }
 
 function recover(){
 
-    const r = [
-    "Error 404: Memory Not Found.",
-    "Ask the group chat.",
-    "Witnesses located.",
-    "Recovery impossible.",
-    "Goldfish backup unavailable.",
-    "Memory overwritten by beer.",
-    "Please consult 3 independent witnesses."
-    ];
+const responses = [
 
-    alert(r[Math.floor(Math.random()*r.length)]);
+"Error 404: Memory Not Found.",
+
+"Please consult witnesses.",
+
+"Group chat archives available.",
+
+"Goldfish backup unavailable.",
+
+"Recovery impossible.",
+
+"Witness statements located.",
+
+"Memory overwritten by BeerOS™."
+
+];
+
+alert(
+
+responses[
+Math.floor(
+Math.random()
+*
+responses.length
+)
+]
+
+);
+
 }
 
-let clicks = 0;
+function askGPT(){
 
-document.addEventListener("DOMContentLoaded",function(){
+const answers = [
 
-    const fish = document.getElementById('fish');
+"Subject does not recall.",
 
-    if(fish){
+"Insufficient memory data.",
 
-        fish.onclick = function(){
+"Please consult witnesses.",
 
-            clicks++;
+"Group chat archives recommended.",
 
-            if(clicks >= 7){
+"Memory overwritten by beer.",
 
-                alert("Developer Mode Enabled\n0 memories recovered.");
+"Confidence high. Accuracy low.",
 
-                clicks = 0;
-            }
-        };
-    }
-});
+"Historical records unavailable."
+
+];
+
+document.getElementById(
+"answer"
+).innerText =
+
+answers[
+Math.floor(
+Math.random()
+*
+answers.length
+)
+];
+
+}
+
+let fishClicks = 0;
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+const fish =
+document.getElementById(
+"fish"
+);
+
+if(fish){
+
+fish.onclick =
+function(){
+
+fishClicks++;
+
+if(
+fishClicks === 7
+){
+
+alert(
+
+"Developer Mode Enabled\n\nRecovered Memories: 0"
+
+);
+
+}
+
+if(
+fishClicks === 20
+){
+
+alert(
+
+"Achievement Unlocked:\nProfessional Forgetter"
+
+);
+
+}
+
+};
+
+}
+
+}
+);
+
 </script>
+
 </body>
+
 </html>
