@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nashita Pro Max™ | Goldfish Memory Premium Edition</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Nashita Pro Max™ V4
+
+</title>
 
 <style>
 
@@ -20,170 +29,127 @@ scroll-behavior:smooth;
 
 body{
 
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+sans-serif;
 
 background:
+
 linear-gradient(
 180deg,
-#10264a 0%,
-#0d1f3b 20%,
-#09152b 40%,
-#06101f 60%,
-#040812 80%,
-#020407 100%
-);
 
-background-attachment:fixed;
+#3a8bd8 0%,
+
+#2360a6 15%,
+
+#143c72 30%,
+
+#0c274d 45%,
+
+#081b35 60%,
+
+#051323 75%,
+
+#020811 100%
+
+);
 
 color:white;
 
 overflow-x:hidden;
 
+position:relative;
+
 }
 
-.hidden{
-display:none;
-}
+/* BUBBLES */
 
-#loader{
+.bubble{
 
 position:fixed;
-inset:0;
 
-background:black;
+bottom:-100px;
 
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
+border-radius:50%;
 
-z-index:99999;
+background:
+rgba(255,255,255,.15);
 
-}
+pointer-events:none;
 
-#loader h2{
+animation:
+bubbleFloat linear infinite;
 
-font-size:2rem;
-margin-bottom:15px;
+z-index:1;
 
 }
 
-#loader p{
-
-opacity:.8;
-
-}
-
-.ticker{
-
-position:sticky;
-top:0;
-
-z-index:1000;
-
-background:rgba(10,10,20,.78);
-
-backdrop-filter:blur(18px);
-
-padding:15px;
-
-text-align:center;
-
-font-weight:700;
-
-letter-spacing:1px;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.3);
-
-}
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-padding:80px 20px;
-
-}
-
-.hero img{
-
-width:min(430px,85vw);
-
-border-radius:32px;
-
-box-shadow:
-0 0 40px rgba(0,160,255,.25),
-0 0 120px rgba(0,100,255,.15);
-
-animation:floatFish 5s ease-in-out infinite;
-
-cursor:pointer;
-
-}
-
-@keyframes floatFish{
+@keyframes bubbleFloat{
 
 0%{
-transform:translateY(0px);
+
+transform:
+translateY(0);
+
+opacity:0;
+
 }
 
-50%{
-transform:translateY(-15px);
+10%{
+
+opacity:1;
+
 }
 
 100%{
-transform:translateY(0px);
-}
+
+transform:
+translateY(-120vh);
+
+opacity:0;
 
 }
 
-.hero h1{
+}
 
-font-size:clamp(3rem,10vw,6rem);
+/* LIGHT RAYS */
 
-font-weight:900;
+.light-rays{
 
-margin-top:25px;
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:0;
+
+background:
+
+linear-gradient(
+90deg,
+
+transparent 0%,
+
+rgba(255,255,255,.03) 20%,
+
+transparent 40%,
+
+rgba(255,255,255,.02) 60%,
+
+transparent 100%
+
+);
 
 }
 
-.hero h2{
+/* ENTER EXPERIENCE */
 
-margin-top:10px;
+.enter-button{
 
-opacity:.9;
-
-font-size:clamp(1.3rem,4vw,2rem);
-
-}
-
-.hero p{
-
-max-width:700px;
-
-margin-top:18px;
-
-font-size:1.1rem;
-
-opacity:.85;
-
-}
-
-.btn{
-
-margin-top:25px;
-
-padding:15px 32px;
+padding:16px 34px;
 
 border:none;
 
@@ -199,15 +165,155 @@ background:white;
 
 color:black;
 
-transition:.25s;
+transition:.3s;
 
 }
 
-.btn:hover{
+.enter-button:hover{
 
-transform:translateY(-3px);
+transform:
+translateY(-3px)
+scale(1.03);
 
 }
+
+/* HERO */
+
+.hero{
+
+position:relative;
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+text-align:center;
+
+padding:40px;
+
+overflow:hidden;
+
+z-index:5;
+
+}
+
+.hero h1{
+
+font-size:
+clamp(3rem,9vw,7rem);
+
+font-weight:900;
+
+margin-top:30px;
+
+}
+
+.hero h2{
+
+margin-top:10px;
+
+font-size:
+clamp(1.4rem,4vw,2.2rem);
+
+opacity:.9;
+
+}
+
+.hero p{
+
+max-width:700px;
+
+margin-top:20px;
+
+opacity:.85;
+
+line-height:1.7;
+
+}
+
+/* SWIMMING FISH */
+
+.swimming-fish{
+
+position:absolute;
+
+top:25%;
+
+left:-350px;
+
+width:300px;
+
+animation:
+swimAcross 18s linear infinite;
+
+z-index:3;
+
+}
+
+@keyframes swimAcross{
+
+0%{
+
+left:-350px;
+transform:scaleX(1);
+
+}
+
+49%{
+
+left:calc(100vw - 300px);
+transform:scaleX(1);
+
+}
+
+50%{
+
+transform:scaleX(-1);
+
+}
+
+99%{
+
+left:-350px;
+transform:scaleX(-1);
+
+}
+
+100%{
+
+left:-350px;
+transform:scaleX(1);
+
+}
+
+}
+
+/* GLASS CARD */
+
+.glass{
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:
+blur(18px);
+
+border:
+1px solid
+rgba(255,255,255,.08);
+
+border-radius:30px;
+
+padding:30px;
+
+}
+
+/* GENERAL */
 
 .section{
 
@@ -215,7 +321,11 @@ max-width:1300px;
 
 margin:auto;
 
-padding:90px 20px;
+padding:100px 20px;
+
+position:relative;
+
+z-index:5;
 
 }
 
@@ -223,354 +333,66 @@ padding:90px 20px;
 
 text-align:center;
 
-font-size:clamp(2.2rem,6vw,4.5rem);
+font-size:
+clamp(2rem,5vw,4rem);
 
-margin-bottom:45px;
+margin-bottom:50px;
 
 font-weight:900;
 
 }
 
-.card{
-
-background:rgba(255,255,255,.06);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:28px;
-
-padding:25px;
-
-box-shadow:
-0 15px 45px rgba(0,0,0,.25);
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:22px;
-
-}
-
-.metric{
-
-text-align:center;
-
-}
-
-.metric h3{
-
-font-size:3rem;
-
-margin-bottom:10px;
-
-}
-
-.metric p{
-
-opacity:.8;
-
-}
-
-.news-card{
-
-max-width:900px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.news-card p{
-
-margin-top:15px;
-
-opacity:.85;
-
-}
-
-.vault-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-
-gap:24px;
-
-}
-
-.case-card{
-
-background:rgba(255,255,255,.05);
-
-border-radius:24px;
-
-overflow:hidden;
-
-cursor:pointer;
-
-transition:.3s;
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.25);
-
-}
-
-.case-card:hover{
-
-transform:
-translateY(-8px)
-scale(1.02);
-
-}
-
-.case-card img{
-
-width:100%;
-
-height:auto;
-
-display:block;
-
-}
-
-.case-info{
-
-padding:18px;
-
-}
-
-.case-info h3{
-
-margin-bottom:8px;
-
-}
-
-.case-info p{
-
-line-height:1.6;
-
-opacity:.78;
-
-}
-
-.timeline{
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-.timeline-item{
-
-position:relative;
-
-padding-left:30px;
-
-margin:30px 0;
-
-}
-
-.timeline-item::before{
-
-content:"";
-
-position:absolute;
-
-left:0;
-top:8px;
-
-width:14px;
-height:14px;
-
-border-radius:50%;
-
-background:#5aa7ff;
-
-box-shadow:
-0 0 20px #5aa7ff;
-
-}
-
-.timeline-item h3{
-
-margin-bottom:6px;
-
-font-size:2rem;
-
-}
-
-.timeline-item p{
-
-opacity:.8;
-
-}
-
-.nashgpt-box{
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-.nashgpt-box input{
-
-width:100%;
-
-padding:16px;
-
-border:none;
-
-border-radius:16px;
-
-font-size:1rem;
-
-margin-top:15px;
-margin-bottom:15px;
-
-}
-
-.nashgpt-answer{
-
-margin-top:15px;
-
-font-size:1.1rem;
-
-}
-
-footer{
-
-text-align:center;
-
-padding:120px 20px;
-
-opacity:.85;
-
-}
-
-#newsModal{
+.hidden{
 
 display:none;
+
+}
+
+#loader{
 
 position:fixed;
 
 inset:0;
 
-background:rgba(0,0,0,.95);
+background:black;
 
-z-index:100000;
-
-padding:25px;
-
-overflow:auto;
-
-}
-
-.modal-inner{
-
-max-width:1000px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-#newsModal video{
-
-width:100%;
-
-max-width:900px;
-
-border-radius:20px;
-
-margin:auto;
-
-display:block;
-
-}
-
-.close-btn{
-
-margin-top:20px;
-
-}
-
-#imageModal{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.95);
-
-z-index:999999;
+display:flex;
 
 justify-content:center;
 align-items:center;
 
-padding:20px;
+flex-direction:column;
+
+z-index:999999;
 
 }
 
-#imageModal img{
+#loader h2{
 
-max-width:95%;
-max-height:95%;
-
-border-radius:22px;
-
-box-shadow:
-0 0 50px rgba(255,255,255,.15);
+margin-bottom:15px;
 
 }
-
-@media(max-width:700px){
-
-.hero h1{
-
-font-size:3.3rem;
-
-}
-
-.section{
-
-padding:70px 18px;
-
-}
-
-.section-title{
-
-font-size:2.6rem;
-
-}
-
-  }
 
 </style>
+
 </head>
 
 <body>
 
+<div class="light-rays"></div>
+
 <div id="loader">
 
-<h2>Initializing NashitaOS™</h2>
+<h2>
+
+Initializing NashitaOS™
+
+</h2>
 
 <p id="status">
-Loading Memories...0%
+
+Loading Memories...
+
 </p>
 
 </div>
@@ -583,42 +405,43 @@ loop>
 
 <div id="site" class="hidden">
 
-<div class="ticker">
-
-NASHDAQ: NSHT |
-Memory Retention ▼ 98.7% |
-Confidence ▲ 312% |
-Witness Dependency ▲ 1000%
-
-</div>
-
 <section class="hero">
 
 <img
+class="swimming-fish"
 id="fish"
-src="Nashita5.png"
-alt="Goldfish Memory Premium Edition">
+src="Nashita5.png">
 
-<h1>NASHITA PRO MAX™</h1>
+<h1>
+
+NASHITA PRO MAX™
+
+</h1>
 
 <h2>
-Goldfish Memory. Premium Edition.
+
+Goldfish Memory.
+Premium Edition.
+
 </h2>
 
 <p>
 
-The most advanced memory deletion
-system ever created.
+The world's leading
+memory deletion platform.
 
 Powered by BeerOS™,
 WitnessCloud™
-and poor decision making.
+and highly experimental
+decision making.
 
 </p>
 
+<br>
+
 <button
-class="btn"
-onclick="startMusic()">
+class="enter-button"
+onclick="startExperience()">
 
 ▶ ENTER EXPERIENCE
 
@@ -626,386 +449,794 @@ onclick="startMusic()">
 
 </section>
 
+<!-- APPLE KEYNOTE -->
+
 <section class="section">
 
-<div class="card news-card">
+<h2 class="section-title">
 
-<h2>
-🚨 BREAKING NEWS CENTER
+Forget More.
+Remember Less.
+
 </h2>
 
-<p>
+<div
+class="glass"
+style="max-width:900px;margin:auto;text-align:center;">
 
-Local authorities confirm
-another major memory retention
-incident involving Nashita.
+<h2 style="font-size:3rem;">
+
+0%
+
+</h2>
+
+<p style="margin-top:20px;font-size:1.2rem;">
+
+Memory Retention
 
 </p>
 
+<br>
+
+<h2 style="font-size:3rem;">
+
+100%
+
+</h2>
+
+<p style="margin-top:20px;font-size:1.2rem;">
+
+Confidence Level
+
+</p>
+
+<br>
+
+<h2 style="font-size:3rem;">
+
+∞
+
+</h2>
+
+<p style="margin-top:20px;font-size:1.2rem;">
+
+Story Repetition
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- BREAKING NEWS -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+🚨 BREAKING NEWS CENTER
+
+</h2>
+
+<div
+class="glass"
+style="max-width:1000px;margin:auto;text-align:center;">
+
+<h3>
+
+Emergency Memory Retention Incident Report
+
+</h3>
+
+<p
+style="
+margin-top:20px;
+line-height:1.8;
+opacity:.9;
+">
+
+Local authorities have confirmed
+another major memory disappearance.
+
+Witnesses remain available.
+
+Memories remain unavailable.
+
+</p>
+
+<br>
+
 <button
-class="btn"
+class="enter-button"
 onclick="openNews()">
 
 WATCH REPORT
 
 </button>
 
+<br><br>
+
+<div
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+">
+
+<div class="glass">
+
+<h3>
+
+📰 Memory Missing Again
+
+</h3>
+
+<p>
+
+Officials confirm
+the memory has not been found.
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+📰 Witnesses Exhausted
+
+</h3>
+
+<p>
+
+Recovery efforts continue.
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+📰 Goldfish Community Responds
+
+</h3>
+
+<p>
+
+Several fish expressed concern.
+
+</p>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
+
+
+
+<!-- RECONSTRUCTION LAB -->
 
 <section class="section">
 
 <h2 class="section-title">
 
-Performance Benchmarks
+MEMORY RECONSTRUCTION LAB™
 
 </h2>
 
-<div class="grid">
+<div
+class="glass"
+style="max-width:900px;margin:auto;text-align:center;">
 
-<div class="card metric">
+<p>
 
-<h3>0%</h3>
-<p>Memory Retention</p>
+Attempt reconstruction of
+the previous evening.
 
-</div>
+</p>
 
-<div class="card metric">
+<br>
 
-<h3>100%</h3>
-<p>Confidence</p>
+<button
+class="enter-button"
+onclick="runReconstruction()">
 
-</div>
+RECONSTRUCT LAST NIGHT
 
-<div class="card metric">
+</button>
 
-<h3>∞</h3>
-<p>Story Repetition</p>
+<br><br>
 
-</div>
+<div
+id="reconstructionOutput"
+style="
+font-size:1.1rem;
+line-height:2;
+opacity:.9;
+">
 
-<div class="card metric">
-
-<h3>Critical</h3>
-<p>Witness Dependency</p>
+Awaiting instructions...
 
 </div>
 
 </div>
 
 </section>
-<section class="section">
 
-<h2 class="section-title">
 
-MEMORY VAULT™
 
-</h2>
-
-<div class="vault-grid">
-
-<div class="case-card">
-
-<img src="Nashita1.jpg">
-
-<div class="case-info">
-
-<h3>Case File #001</h3>
-
-<p>
-Subject claims everything was under control.
-Witnesses disagree.
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita2.jpg">
-
-<div class="case-info">
-
-<h3>Case File #002</h3>
-
-<p>
-Independent review determined
-that confidence remained high
-despite evidence.
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita3.jpg">
-
-<div class="case-info">
-
-<h3>Case File #003</h3>
-
-<p>
-Story repeated multiple times.
-Accuracy could not be verified.
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita4.png">
-
-<div class="case-info">
-
-<h3>Case File #004</h3>
-
-<p>
-Memory retention unavailable
-during recording.
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita5.png">
-
-<div class="case-info">
-
-<h3>Case File #005</h3>
-
-<p>
-Official company mascot.
-Research concluded the resemblance
-was statistically significant.
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita6.png">
-
-<div class="case-info">
-
-<h3>Case File #006</h3>
-
-<p>
-Subject appeared operational.
-Memory system did not.
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita7.png">
-
-<div class="case-info">
-
-<h3>Case File #007</h3>
-
-<p>
-Further investigation requested.
-Subject unable to recall incident.
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita8.jpg">
-
-<div class="case-info">
-
-<h3>System Diagnostics™</h3>
-
-<p>
-
-Battery: 12%
-
-Memory: 0%
-
-Awareness:
-Loading...
-
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita9.jpg">
-
-<div class="case-info">
-
-<h3>Official Brand Ambassador™</h3>
-
-<p>
-
-Independent auditors were unable
-to determine how this happened.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita10.jpg">
-
-<div class="case-info">
-
-<h3>Witness Protection Program™</h3>
-
-<p>
-
-Following repeated incidents,
-subject was relocated
-to an undisclosed location.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="case-card">
-
-<img src="Nashita11.jpg">
-
-<div class="case-info">
-
-<h3>Factory Reset Procedure™</h3>
-
-<p>
-
-Engineers attempt emergency reboot
-after Goldfish Mode™ activated.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
+<!-- WITNESS INVESTIGATION BOARD -->
 
 <section class="section">
 
 <h2 class="section-title">
 
-Incident Timeline
+WITNESS INVESTIGATION BOARD
 
 </h2>
 
-<div class="timeline">
+<div
+class="glass"
+style="
+position:relative;
+overflow:hidden;
+">
 
-<div class="timeline-item">
+<div
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+align-items:center;
+">
 
-<h3>2022</h3>
+<div>
 
-<p>
-First documented memory irregularities.
-</p>
-
-</div>
-
-<div class="timeline-item">
-
-<h3>2023</h3>
-
-<p>
-Witnesses become primary storage medium.
-</p>
-
-</div>
-
-<div class="timeline-item">
-
-<h3>2024</h3>
-
-<p>
-Goldfish comparisons officially begin.
-</p>
+<img
+src="Nashita10.jpg"
+style="
+width:100%;
+border-radius:25px;
+">
 
 </div>
 
-<div class="timeline-item">
-
-<h3>2025</h3>
-
-<p>
-Critical retention failure detected.
-</p>
-
-</div>
-
-<div class="timeline-item">
-
-<h3>2026</h3>
-
-<p>
-Nashita Pro Max™ launched publicly.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<div class="card nashgpt-box">
+<div>
 
 <h2>
 
-NashGPT™
+CASE STATUS
 
 </h2>
 
+<br>
+
 <p>
 
-Powered by Artificial Forgetfulness.
+✔ Witnesses Located
+
+</p>
+
+<br>
+
+<p>
+
+✔ Evidence Available
+
+</p>
+
+<br>
+
+<p>
+
+✘ Subject Remembers Event
+
+</p>
+
+<br>
+
+<p>
+
+✔ Group Chat Archives Found
+
+</p>
+
+<br>
+
+<p>
+
+✘ Timeline Confirmed
+
+</p>
+
+<br>
+
+<p>
+
+Status:
+ONGOING INVESTIGATION
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GOLDFISH VS NASHITA -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+🐠 GOLDFISH vs NASHITA™
+
+</h2>
+
+<div
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+">
+
+<div class="glass">
+
+<h2 style="text-align:center;">
+
+🐟 Goldfish
+
+</h2>
+
+<br>
+
+<p>✔ Remembers yesterday</p>
+
+<br>
+
+<p>✔ Reliable witness</p>
+
+<br>
+
+<p>✔ Accepts evidence</p>
+
+<br>
+
+<p>✔ Consistent storytelling</p>
+
+<br>
+
+<p>✔ Requires no witnesses</p>
+
+<br>
+
+<p>✔ Knows what happened</p>
+
+</div>
+
+<div class="glass">
+
+<h2 style="text-align:center;">
+
+🐠 Nashita
+
+</h2>
+
+<br>
+
+<p>✘ Remembers yesterday</p>
+
+<br>
+
+<p>✘ Reliable witness</p>
+
+<br>
+
+<p>✘ Accepts evidence</p>
+
+<br>
+
+<p>✘ Consistent storytelling</p>
+
+<br>
+
+<p>✔ Requires witnesses</p>
+
+<br>
+
+<p>✘ Knows what happened</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- MEMORY VAULT 2.0 -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+MEMORY VAULT™ 2.0
+
+</h2>
+
+<p
+style="
+text-align:center;
+opacity:.8;
+margin-bottom:40px;
+">
+
+Recovered evidence from previous incidents.
+
+</p>
+
+<div
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+">
+
+<div class="glass">
+
+<img
+src="Nashita8.jpg"
+style="
+width:100%;
+border-radius:20px;
+">
+
+<h3 style="margin-top:20px;">
+
+System Diagnostics™
+
+</h3>
+
+<p style="margin-top:10px;">
+
+Battery: 12%
+
+<br>
+
+Memory: 0%
+
+<br>
+
+Awareness: Loading...
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<img
+src="Nashita9.jpg"
+style="
+width:100%;
+border-radius:20px;
+">
+
+<h3 style="margin-top:20px;">
+
+Official Brand Ambassador™
+
+</h3>
+
+<p style="margin-top:10px;">
+
+Independent auditors remain confused.
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<img
+src="Nashita10.jpg"
+style="
+width:100%;
+border-radius:20px;
+">
+
+<h3 style="margin-top:20px;">
+
+Witness Protection Program™
+
+</h3>
+
+<p style="margin-top:10px;">
+
+Subject relocated following memory incident.
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<img
+src="Nashita11.jpg"
+style="
+width:100%;
+border-radius:20px;
+">
+
+<h3 style="margin-top:20px;">
+
+Factory Reset Procedure™
+
+</h3>
+
+<p style="margin-top:10px;">
+
+Engineers attempt emergency recovery.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- WANTED BY WITNESSES -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+🚨 WANTED BY WITNESSES
+
+</h2>
+
+<div
+class="glass"
+style="
+max-width:900px;
+margin:auto;
+text-align:center;
+">
+
+<img
+src="Nashita10.jpg"
+style="
+width:100%;
+max-width:500px;
+border-radius:25px;
+">
+
+<br><br>
+
+<h2>
+
+REWARD
+
+</h2>
+
+<br>
+
+<h1>
+
+ONE ACCURATE RECOLLECTION
+
+</h1>
+
+<br>
+
+<p>
+
+Wanted for:
+
+</p>
+
+<br>
+
+<p>
+
+• Failure to remember events
+
+</p>
+
+<br>
+
+<p>
+
+• Ignoring available evidence
+
+</p>
+
+<br>
+
+<p>
+
+• Modification of historical timelines
+
+</p>
+
+<br>
+
+<p>
+
+• Excessive witness dependency
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- NASHDAQ -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+📈 NASHDAQ INVESTOR RELATIONS
+
+</h2>
+
+<div
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+">
+
+<div class="glass">
+
+<h2>NSHT</h2>
+
+<br>
+
+<h3>-97%</h3>
+
+<p>
+
+Memory Retention Index
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h2>NSHT</h2>
+
+<br>
+
+<h3>+312%</h3>
+
+<p>
+
+Confidence Index
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h2>NSHT</h2>
+
+<br>
+
+<h3>+845%</h3>
+
+<p>
+
+Witness Dependency
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h2>NSHT</h2>
+
+<br>
+
+<h3>-100%</h3>
+
+<p>
+
+Evidence Acceptance Rate
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NASHGPT TERMINAL -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+🧠 NASHGPT TERMINAL™
+
+</h2>
+
+<div
+class="glass"
+style="
+max-width:900px;
+margin:auto;
+">
+
+<p
+style="
+opacity:.7;
+margin-bottom:20px;
+">
+
+Powered by Artificial Forgetfulness™
 
 </p>
 
 <input
 id="question"
-placeholder="What happened last night?">
+placeholder="Ask NashGPT what happened last night..."
+style="
+width:100%;
+padding:18px;
+border:none;
+border-radius:15px;
+font-size:1rem;
+">
+
+<br><br>
 
 <button
-class="btn"
+class="enter-button"
 onclick="askGPT()">
 
-Ask NashGPT™
+QUERY DATABASE
 
 </button>
+
+<br><br>
 
 <div
 id="answer"
-class="nashgpt-answer">
+style="
+min-height:80px;
+font-size:1.1rem;
+line-height:1.8;
+">
+
+Awaiting query...
 
 </div>
 
@@ -1013,203 +1244,445 @@ class="nashgpt-answer">
 
 </section>
 
-<section class="section">
 
-<div class="grid">
 
-<div class="card">
-
-<h2>
-Scientific Finding #1
-</h2>
-
-<p>
-
-Testing suggests certain goldfish
-may outperform the subject in
-memory retention.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>
-Scientific Finding #2
-</h2>
-
-<p>
-
-Group chat records proved more
-reliable than eyewitness testimony
-from the subject.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>
-Scientific Finding #3
-</h2>
-
-<p>
-
-Confidence remained unaffected
-by accuracy levels.
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>
-Scientific Finding #4
-</h2>
-
-<p>
-
-The global population continues
-operating normally regardless
-of subject availability.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
+<!-- REPORTER ARCHIVE -->
 
 <section class="section">
 
-<div class="card">
+<h2 class="section-title">
 
-<h2>
-
-Customer Reviews
+📺 BREAKING NEWS ARCHIVE
 
 </h2>
-
-<br>
-
-<p>
-
-★★★★★
-"The memories exist.
-The owner does not."
-
-</p>
-
-<br>
-
-<p>
-
-★★★★★
-"We reconstructed the evening
-entirely from witness testimony."
-
-</p>
-
-<br>
-
-<p>
-
-★★★★★
-"I've met goldfish with
-stronger recall."
-
-</p>
-
-<br>
-
-<p>
-
-★★★★★
-"Software rebooted.
-Data did not."
-
-</p>
-
-</div>
-
-</section>
-
-<section class="section">
 
 <div
-class="card"
-style="text-align:center">
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+">
 
-<h2>
+<div class="glass">
 
-Memory Recovery Lab™
+<h3>
 
-</h2>
+Memory Missing Again
+
+</h3>
+
+<br>
 
 <p>
 
-Attempt recovery of lost memories.
+Authorities continue
+their search.
 
 </p>
 
-<button
-class="btn"
-onclick="recover()">
+</div>
 
-RECOVER LAST NIGHT'S MEMORIES
+<div class="glass">
 
-</button>
+<h3>
+
+Witnesses Frustrated
+
+</h3>
+
+<br>
+
+<p>
+
+Several witnesses requested
+additional compensation.
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+Goldfish Community Responds
+
+</h3>
+
+<br>
+
+<p>
+
+Fish leaders have expressed
+concern regarding comparisons.
+
+</p>
+
+</div>
 
 </div>
 
 </section>
-<footer>
 
-<h2>
 
-Nashita Shanghai GoldFish™
+
+<!-- NASHITA PLUS -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+🎬 NASHITA+
 
 </h2>
 
-<br>
+<div
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+">
+
+<div class="glass">
+
+<h3>
+
+50 First Dates
+
+</h3>
 
 <p>
 
-Think Different.
-
-Forget Everything.
+Documentary
 
 </p>
-
-<br>
-
-<p>
-
-© 2026 Nashita Shanghai GoldFish™
-
-</p>
-
-<br>
-
-<p>
-
-All memories were reserved.
-
-They are no longer available.
-
-</p>
-
-</footer>
 
 </div>
 
-<div id="newsModal">
+<div class="glass">
 
-<div class="modal-inner">
+<h3>
+
+Memento
+
+</h3>
+
+<p>
+
+Training Material
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+Finding Memories
+
+</h3>
+
+<p>
+
+Fantasy
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+The Hangover
+
+</h3>
+
+<p>
+
+Based on true events
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CLASSIFIED DOSSIER -->
+
+<section
+id="dossier"
+class="section"
+style="display:none;">
+
+<h2 class="section-title">
+
+📂 CLASSIFIED DOSSIER
+
+</h2>
+
+<div class="glass">
+
+<h3>
+
+CONFIDENTIAL
+
+</h3>
+
+<br>
+
+<p>
+
+Incident #001
+
+Witnesses available.
+
+Subject unavailable.
+
+</p>
+
+<br>
+
+<p>
+
+Incident #014
+
+Memory reconstruction failed.
+
+</p>
+
+<br>
+
+<p>
+
+Incident #032
+
+Evidence rejected.
+
+</p>
+
+<br>
+
+<p>
+
+Incident #071
+
+Group chat became primary source.
+
+</p>
+
+<br>
+
+<p>
+
+Incident #099
+
+Goldfish comparison officially approved.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- MEMORY GRAVEYARD -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+🪦 MEMORY GRAVEYARD
+
+</h2>
+
+<div
+style="
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+">
+
+<div class="glass">
+
+<h3>
+
+Memory #214
+
+</h3>
+
+<br>
+
+<p>
+
+STATUS:
+LOST
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+Memory #507
+
+</h3>
+
+<br>
+
+<p>
+
+STATUS:
+CORRUPTED
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+Memory #882
+
+</h3>
+
+<br>
+
+<p>
+
+STATUS:
+OVERWRITTEN
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>
+
+Memory #921
+
+</h3>
+
+<br>
+
+<p>
+
+STATUS:
+UNRECOVERABLE
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ABYSS -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+🌊 THE ABYSS
+
+</h2>
+
+<div
+class="glass"
+style="
+text-align:center;
+max-width:900px;
+margin:auto;
+">
+
+<h2>
+
+After extensive investigation...
+
+</h2>
+
+<br><br>
+
+<p>
+
+Witnesses were consulted.
+
+</p>
+
+<br>
+
+<p>
+
+Evidence was reviewed.
+
+</p>
+
+<br>
+
+<p>
+
+Memories were searched.
+
+</p>
+
+<br><br>
+
+<h1>
+
+No memories were recovered.
+
+</h1>
+
+<br>
+
+<p>
+
+Please consult witnesses.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- REPORTER MODAL -->
+
+<div
+id="newsModal"
+style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.95);
+z-index:999999;
+padding:30px;
+overflow:auto;
+">
+
+<div
+class="glass"
+style="
+max-width:1000px;
+margin:auto;
+text-align:center;
+">
 
 <h1>
 
@@ -1221,8 +1694,7 @@ They are no longer available.
 
 <p>
 
-Exclusive report regarding
-the latest Nashita incident.
+Exclusive investigation report.
 
 </p>
 
@@ -1230,7 +1702,11 @@ the latest Nashita incident.
 
 <video
 id="reporterVideo"
-controls>
+controls
+style="
+width:100%;
+border-radius:25px;
+">
 
 <source
 src="reporter.mp4"
@@ -1238,8 +1714,10 @@ type="video/mp4">
 
 </video>
 
+<br>
+
 <button
-class="btn close-btn"
+class="enter-button"
 onclick="closeNews()">
 
 CLOSE REPORT
@@ -1250,35 +1728,55 @@ CLOSE REPORT
 
 </div>
 
+
+
 <script>
 
-const loadingMessages = [
+/* LOADER */
 
-"Loading Memories...0%",
-"Scanning Previous Night...",
+const loadingMessages=[
+
+"Loading Memories...",
 "Consulting Witnesses...",
-"Searching...",
+"Searching Archives...",
+"Reviewing Evidence...",
 "No memories found.",
 "Launching Goldfish Mode..."
 
 ];
 
-let loadingIndex = 0;
+let loadIndex=0;
 
-const loaderTimer = setInterval(()=>{
+const loaderInterval=setInterval(()=>{
 
-document.getElementById("status").innerText =
-loadingMessages[loadingIndex];
+document.getElementById(
+"status"
+).innerText=
 
-loadingIndex++;
+loadingMessages[
+loadIndex
+];
 
-if(loadingIndex >= loadingMessages.length){
+loadIndex++;
 
-clearInterval(loaderTimer);
+if(
+loadIndex>=
+loadingMessages.length
+){
 
-document.getElementById("loader").style.display="none";
+clearInterval(
+loaderInterval
+);
 
-document.getElementById("site").classList.remove("hidden");
+document.getElementById(
+"loader"
+).style.display="none";
+
+document.getElementById(
+"site"
+).classList.remove(
+"hidden"
+);
 
 }
 
@@ -1286,17 +1784,23 @@ document.getElementById("site").classList.remove("hidden");
 
 
 
-function startMusic(){
+/* EXPERIENCE */
 
-const song =
-document.getElementById("song");
+function startExperience(){
 
-song.volume = 1;
+const song=
+document.getElementById(
+"song"
+);
+
+song.volume=.8;
 
 song.play().catch(()=>{});
 
 alert(
-"NashitaOS™ Activated\n\nMemory Retention: 0%\nConfidence: 100%\nWitnesses Required: YES"
+
+"NashitaOS™ Activated\n\nMemory Retention: 0%\nWitnesses Required: YES"
+
 );
 
 window.scrollTo({
@@ -1311,42 +1815,38 @@ behavior:"smooth"
 
 
 
+/* NEWS */
+
 function openNews(){
 
-const song =
-document.getElementById("song");
-
-song.pause();
+document.getElementById(
+"song"
+).pause();
 
 document.getElementById(
 "newsModal"
-).style.display = "block";
+).style.display="block";
 
-const video =
+const video=
 document.getElementById(
 "reporterVideo"
 );
 
-video.currentTime = 0;
+video.currentTime=0;
 
 video.play();
 
 }
 
-
-
 function closeNews(){
 
-const video =
 document.getElementById(
 "reporterVideo"
-);
-
-video.pause();
+).pause();
 
 document.getElementById(
 "newsModal"
-).style.display = "none";
+).style.display="none";
 
 document.getElementById(
 "song"
@@ -1356,58 +1856,37 @@ document.getElementById(
 
 
 
-function recover(){
-
-const responses = [
-
-"Error 404: Memory Not Found.",
-"Please consult witnesses.",
-"Group chat archives available.",
-"Goldfish backup unavailable.",
-"Recovery impossible.",
-"Witness statements located.",
-"Memory overwritten by BeerOS™.",
-"Please ask literally anyone else."
-
-];
-
-alert(
-
-responses[
-Math.floor(
-Math.random() *
-responses.length
-)
-]
-
-);
-
-}
-
-
+/* GPT */
 
 function askGPT(){
 
-const answers = [
+const answers=[
+
+"Please consult witnesses.",
 
 "Subject does not recall.",
-"Insufficient memory data.",
-"Please consult witnesses.",
-"Group chat archives recommended.",
-"Memory overwritten by beer.",
-"Confidence high. Accuracy low.",
+
+"Memory overwritten by BeerOS™.",
+
 "Historical records unavailable.",
-"Version mismatch between story and reality."
+
+"Group chat archives recommended.",
+
+"Evidence exists. Memory does not.",
+
+"Timeline corrupted.",
+
+"Confidence remains high."
 
 ];
 
 document.getElementById(
 "answer"
-).innerText =
+).innerText=
 
 answers[
 Math.floor(
-Math.random() *
+Math.random()*
 answers.length
 )
 ];
@@ -1416,116 +1895,160 @@ answers.length
 
 
 
-let fishClicks = 0;
+/* RECONSTRUCTION */
+
+function runReconstruction(){
+
+const output=
+document.getElementById(
+"reconstructionOutput"
+);
+
+output.innerHTML=
+
+"Scanning witnesses...";
+
+setTimeout(()=>{
+
+output.innerHTML=
+
+"Cross-checking stories...";
+
+},1500);
+
+setTimeout(()=>{
+
+output.innerHTML=
+
+"Reviewing evidence...";
+
+},3000);
+
+setTimeout(()=>{
+
+output.innerHTML=
+
+"<b>Result:</b><br><br>No reliable timeline recovered.";
+
+},4500);
+
+}
 
 
+
+/* DOSSIER UNLOCK */
+
+let fishClicks=0;
 
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
-const fish =
-document.getElementById("fish");
+const fish=
+document.getElementById(
+"fish"
+);
 
 if(fish){
 
-fish.onclick = function(){
+fish.onclick=function(){
 
 fishClicks++;
 
-if(fishClicks === 7){
-
-alert(
-"Developer Mode Enabled\n\nRecovered Memories: 0"
-);
-
-}
-
-if(fishClicks === 20){
-
-alert(
-"Achievement Unlocked:\nProfessional Forgetter"
-);
-
-}
-
-};
-
-}
-
-
-
-/* IMAGE POPUP CARDS */
-
-document
-.querySelectorAll(".case-card")
-.forEach(card=>{
-
-card.addEventListener("click",function(){
-
-const old =
-document.querySelector(".mega-card");
-
-if(old){
-old.remove();
-}
-
-const clone =
-this.cloneNode(true);
-
-clone.classList.add("mega-card");
-
-clone.style.position="fixed";
-clone.style.left="50%";
-clone.style.top="50%";
-clone.style.transform="translate(-50%,-50%)";
-clone.style.width="90%";
-clone.style.maxWidth="500px";
-clone.style.zIndex="999999";
-clone.style.background="#111";
-clone.style.boxShadow="0 0 60px rgba(0,0,0,.8)";
-clone.style.borderRadius="25px";
-
-document.body.appendChild(clone);
-
-clone.onclick=function(e){
-
-e.stopPropagation();
-
-clone.remove();
-
-};
-
-});
-
-});
-
-
-
-document.addEventListener(
-"click",
-function(e){
-
 if(
-!e.target.closest(".mega-card") &&
-!e.target.closest(".case-card")
+fishClicks===7
 ){
 
-const old =
-document.querySelector(".mega-card");
+alert(
 
-if(old){
-old.remove();
+"Developer Mode Enabled"
+
+);
+
 }
+
+if(
+fishClicks===15
+){
+
+document.getElementById(
+"dossier"
+).style.display=
+"block";
+
+alert(
+
+"📂 Classified Dossier Unlocked"
+
+);
+
+document.getElementById(
+"dossier"
+).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+};
 
 }
 
 });
 
-});
-  
+
+
+/* BUBBLES */
+
+function createBubble(){
+
+const bubble=
+document.createElement(
+"div"
+);
+
+bubble.classList.add(
+"bubble"
+);
+
+const size=
+Math.random()*30+10;
+
+bubble.style.width=
+size+"px";
+
+bubble.style.height=
+size+"px";
+
+bubble.style.left=
+Math.random()*100+"vw";
+
+bubble.style.animationDuration=
+(Math.random()*12+8)+"s";
+
+document.body.appendChild(
+bubble
+);
+
+setTimeout(()=>{
+
+bubble.remove();
+
+},20000);
+
+}
+
+setInterval(
+createBubble,
+800
+);
+
 </script>
+
+</div>
 
 </body>
 
-</html>
+  </html>
