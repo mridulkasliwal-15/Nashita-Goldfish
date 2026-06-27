@@ -36,19 +36,81 @@ BlinkMacSystemFont,
 sans-serif;
 
 background:
-linear-gradient(
-180deg,
-#000000 0%,
-#050505 25%,
-#09152b 60%,
-#000000 100%
-);
+radial-gradient(
+circle at top,
+#1c3c73 0%,
+#13284b 18%,
+#0d1b34 35%,
+#07111f 55%,
+#03060d 78%,
+#000000 100%);
+
+background-attachment:fixed;
 
 color:white;
 
 overflow-x:hidden;
 
+position:relative;
+
 }
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(
+circle at 20% 10%,
+rgba(120,180,255,.08),
+transparent 40%),
+
+radial-gradient(
+circle at 80% 20%,
+rgba(80,120,255,.05),
+transparent 35%),
+
+linear-gradient(
+180deg,
+rgba(255,255,255,.015),
+transparent);
+
+mix-blend-mode:screen;
+
+animation:
+waterGlow 10s ease-in-out infinite;
+
+}
+
+@keyframes waterGlow{
+
+0%{
+
+opacity:.45;
+
+}
+
+50%{
+
+opacity:.9;
+
+}
+
+100%{
+
+opacity:.45;
+
+}
+
+}
+
 
 /* LOADER */
 
@@ -112,22 +174,26 @@ translateY(0);
 
 .aquarium{
 
-height:90px;
+height:70px;
 
 position:relative;
 
 overflow:hidden;
 
-border-bottom:
-1px solid rgba(255,255,255,.08);
-
 background:
 linear-gradient(
-90deg,
-rgba(255,255,255,.01),
-rgba(255,255,255,.04),
-rgba(255,255,255,.01)
-);
+180deg,
+rgba(70,120,190,.18),
+rgba(15,30,55,.35),
+rgba(0,0,0,.15));
+
+backdrop-filter:blur(20px);
+
+border-bottom:
+1px solid rgba(255,255,255,.06);
+
+box-shadow:
+0 10px 40px rgba(0,120,255,.08);
 
 }
 
@@ -135,39 +201,87 @@ rgba(255,255,255,.01)
 
 position:absolute;
 
-top:12px;
+top:10px;
 
-height:65px;
+height:42px;
+
+left:-70px;
+
+filter:
+
+drop-shadow(0 0 10px rgba(255,255,255,.12))
+drop-shadow(0 0 25px rgba(120,180,255,.15));
 
 animation:
-fishSwim 12s linear infinite;
+
+fishSwim 14s linear infinite;
+
+z-index:5;
 
 }
 
 @keyframes fishSwim{
 
 0%{
-left:-80px;
-transform:scaleX(1);
+
+left:-70px;
+
+transform:
+translateY(2px)
+scaleX(1);
+
+}
+
+20%{
+
+transform:
+translateY(-2px)
+scaleX(1);
+
 }
 
 49%{
-left:calc(100% - 80px);
-transform:scaleX(1);
+
+left:calc(100% - 70px);
+
+transform:
+translateY(1px)
+scaleX(1);
+
 }
 
 50%{
-transform:scaleX(-1);
+
+transform:
+scaleX(-1);
+
+}
+
+75%{
+
+transform:
+translateY(-3px)
+scaleX(-1);
+
 }
 
 99%{
-left:-80px;
-transform:scaleX(-1);
+
+left:-70px;
+
+transform:
+translateY(2px)
+scaleX(-1);
+
 }
 
 100%{
-left:-80px;
-transform:scaleX(1);
+
+left:-70px;
+
+transform:
+scaleX(1);
+
 }
 
 }
@@ -191,13 +305,33 @@ padding:40px 20px;
 
 .hero-logo{
 
-width:min(340px,85vw);
+width:min(330px,82vw);
 
 border-radius:30px;
 
 box-shadow:
-0 0 50px rgba(255,255,255,.08);
 
+0 0 30px rgba(100,170,255,.12),
+
+0 0 80px rgba(40,120,255,.08);
+
+animation:
+heroFloat 5s ease-in-out infinite;
+
+}
+@keyframes heroFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
 }
 
 .hero h1{
@@ -235,7 +369,7 @@ opacity:.8;
 
 margin-top:30px;
 
-padding:16px 34px;
+padding:16px 36px;
 
 border:none;
 
@@ -247,19 +381,54 @@ font-weight:800;
 
 cursor:pointer;
 
-background:white;
-color:black;
+color:white;
 
-transition:.25s;
+background:
+linear-gradient(
+135deg,
+#4f8cff,
+#2d6dff);
+
+box-shadow:
+
+0 8px 25px rgba(45,109,255,.35),
+
+0 0 20px rgba(90,170,255,.18);
+
+transition:
+
+transform .25s ease,
+
+box-shadow .25s ease,
+
+filter .25s ease;
+
+-webkit-tap-highlight-color:transparent;
 
 }
 
 .enter-button:hover{
 
 transform:
-translateY(-2px);
+translateY(-3px);
+
+box-shadow:
+
+0 15px 35px rgba(45,109,255,.45),
+
+0 0 35px rgba(90,170,255,.25);
 
 }
+
+.enter-button:active{
+
+transform:
+scale(.96);
+
+filter:brightness(.9);
+
+}
+
 
 /* GENERAL */
 
@@ -289,19 +458,33 @@ font-weight:900;
 .glass{
 
 background:
-rgba(255,255,255,.05);
+linear-gradient(
+180deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.04));
 
 backdrop-filter:
-blur(16px);
+blur(18px);
 
 border:
 1px solid
 rgba(255,255,255,.08);
 
-border-radius:28px;
+border-radius:30px;
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.35),
+
+0 0 35px rgba(60,130,255,.06);
+
+transition:
+
+transform .45s ease,
+
+box-shadow .45s ease;
 
 }
-
 .card{
 
 padding:30px;
@@ -312,10 +495,33 @@ padding:30px;
 
 .evidence{
 
-max-width:900px;
+max-width:950px;
 
 margin:auto;
-margin-bottom:120px;
+
+margin-bottom:130px;
+
+opacity:0;
+
+transform:
+translateY(70px)
+scale(.96);
+
+transition:
+
+opacity .8s ease,
+
+transform .8s ease;
+
+}
+
+.evidence.reveal.active{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
 
 }
 
@@ -325,30 +531,117 @@ width:100%;
 
 display:block;
 
-border-radius:28px;
+border-radius:30px;
+
+transform:scale(1);
 
 box-shadow:
-0 20px 60px rgba(0,0,0,.35);
+
+0 30px 80px rgba(0,0,0,.45),
+
+0 0 45px rgba(70,140,255,.10);
+
+transition:
+
+transform 1.4s cubic-bezier(.22,.61,.36,1),
+
+box-shadow 1.2s ease,
+
+filter .8s ease;
+
+filter:
+
+brightness(.92)
+
+contrast(1.05)
+
+saturate(1.05);
+
+}
+
+.evidence.reveal.active img{
+
+transform:scale(1.06);
+
+filter:
+
+brightness(1)
+
+contrast(1.08)
+
+saturate(1.12);
 
 }
 
 .evidence-info{
 
-margin-top:20px;
+margin-top:-55px;
 
-padding:25px;
+position:relative;
+
+z-index:5;
+
+width:92%;
+
+margin-left:auto;
+
+margin-right:auto;
+
+padding:28px;
 
 background:
-rgba(255,255,255,.04);
+
+linear-gradient(
+
+180deg,
+
+rgba(18,25,40,.88),
+
+rgba(10,16,28,.92));
 
 backdrop-filter:
-blur(10px);
+
+blur(18px);
 
 border:
-1px solid
-rgba(255,255,255,.08);
+
+1px solid rgba(255,255,255,.08);
 
 border-radius:24px;
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.40);
+
+transition:
+
+transform .6s ease;
+
+}
+
+.evidence:hover img{
+
+box-shadow:
+
+0 35px 90px rgba(0,0,0,.55),
+
+0 0 60px rgba(90,170,255,.18);
+
+}
+
+.evidence:hover .evidence-info{
+
+transform:
+
+translateY(-16px);
+
+}
+
+.evidence.reveal.active .evidence-info{
+
+transform:
+
+translateY(-10px);
 
 }
 
@@ -370,28 +663,33 @@ opacity:.85;
 
 display:inline-block;
 
-padding:8px 14px;
+padding:9px 16px;
 
 margin-bottom:18px;
 
 border-radius:999px;
 
-font-size:.75rem;
+font-size:.72rem;
 
 font-weight:700;
 
+letter-spacing:1px;
+
 background:
-rgba(255,70,70,.15);
+
+rgba(255,70,70,.12);
 
 border:
-1px solid
-rgba(255,70,70,.35);
 
-color:#ffb1b1;
+1px solid rgba(255,90,90,.30);
+
+color:#ffd4d4;
+
+box-shadow:
+
+0 0 15px rgba(255,80,80,.15);
 
 text-transform:uppercase;
-
-letter-spacing:1px;
 
 }
 
@@ -408,6 +706,62 @@ font-size:3rem;
 .section{
 
 padding:80px 20px;
+
+}
+
+}
+
+/* AQUARIUM BUBBLES */
+
+.bubble-container{
+
+position:absolute;
+
+inset:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
+
+.bubble{
+
+position:absolute;
+
+bottom:-20px;
+
+background:rgba(255,255,255,.10);
+
+border-radius:50%;
+
+filter:blur(.3px);
+
+animation:bubbleRise linear forwards;
+
+}
+
+@keyframes bubbleRise{
+
+0%{
+
+transform:translateY(0);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:.45;
+
+}
+
+100%{
+
+transform:translateY(-120px);
+
+opacity:0;
 
 }
 
@@ -446,6 +800,8 @@ loop>
 <!-- AQUARIUM STRIP -->
 
 <div class="aquarium">
+
+<div class="bubble-container"></div>
 
 <img
 src="Nashita5.png"
@@ -783,9 +1139,11 @@ CASE FILE #001
 
 <p>
 
-Subject displayed high confidence levels.
+Confidence Level: 100%
 
-Memory availability could not be verified.
+Memory Available: 0%
+
+Witnesses immediately requested.
 
 </p>
 
@@ -817,9 +1175,12 @@ CASE FILE #002
 
 <p>
 
-Initial statement was recorded.
+Initial statement recorded.
 
-Three revised versions followed shortly after.
+Three revised versions followed within
+the next thirty minutes.
+
+Current version remains under review.
 
 </p>
 
@@ -851,9 +1212,11 @@ CASE FILE #003
 
 <p>
 
-Photographic evidence exists.
+Photographic evidence successfully recovered.
 
-Subject continues to request additional proof.
+Subject continues requesting
+additional evidence despite
+standing inside the photograph.
 
 </p>
 
@@ -1079,82 +1442,155 @@ Memory retention remained unavailable.
 
 <!-- WITNESS INVESTIGATION BOARD -->
 
+<!-- WITNESS INVESTIGATION BOARD -->
+
 <section class="section reveal">
 
 <h2 class="section-title">
 
-WITNESS INVESTIGATION BOARD™
+🕵️ WITNESS INVESTIGATION BOARD™
 
 </h2>
 
 <div
 class="glass card"
 style="
-max-width:1000px;
+max-width:1050px;
 margin:auto;
 ">
 
 <div
 style="
 display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+grid-template-columns:1fr;
+gap:28px;
 align-items:center;
 ">
 
-<div>
+<div style="position:relative;">
 
 <img
 src="Nashita10.jpg"
 style="
 width:100%;
-border-radius:24px;
 display:block;
+border-radius:24px;
+box-shadow:
+0 20px 60px rgba(0,0,0,.45);
 ">
+
+<div
+style="
+position:absolute;
+top:18px;
+left:18px;
+padding:8px 16px;
+background:#b32020;
+color:white;
+font-size:.75rem;
+font-weight:700;
+border-radius:999px;
+letter-spacing:1px;
+">
+
+CASE #NPM-010
+
+</div>
+
+<div
+style="
+position:absolute;
+bottom:20px;
+right:20px;
+background:rgba(0,0,0,.72);
+padding:12px 18px;
+border-radius:16px;
+backdrop-filter:blur(10px);
+">
+
+📸 Primary Witness Photograph
+
+</div>
 
 </div>
 
 <div>
 
-<h2>
+<h2 style="margin-bottom:25px;">
 
-CASE STATUS
+INVESTIGATION STATUS
 
 </h2>
 
-<br>
+<div style="line-height:2.4;">
 
-<p>✔ Witnesses Located</p>
+<p><span style="color:#59ff9f;">●</span> Witnesses Interviewed</p>
 
-<br>
+<p><span style="color:#59ff9f;">●</span> Photographic Evidence Located</p>
 
-<p>✔ Evidence Available</p>
+<p><span style="color:#59ff9f;">●</span> Group Chat Archived</p>
 
-<br>
+<p><span style="color:#59ff9f;">●</span> Timeline Partially Reconstructed</p>
 
-<p>✔ Group Chat Archived</p>
+<p><span style="color:#ff5f5f;">●</span> Subject Recalls Events</p>
 
-<br>
+<p><span style="color:#ff5f5f;">●</span> Evidence Accepted</p>
 
-<p>✘ Subject Remembers Event</p>
+<p><span style="color:#ff5f5f;">●</span> Memory Recovery Successful</p>
 
-<br>
-
-<p>✘ Timeline Verified</p>
+</div>
 
 <br>
 
-<p>✘ Recovery Successful</p>
+<div
+style="
+height:14px;
+background:rgba(255,255,255,.08);
+border-radius:999px;
+overflow:hidden;
+">
+
+<div
+style="
+width:94%;
+height:100%;
+background:
+linear-gradient(
+90deg,
+#2ad66d,
+#6cf0a1);
+">
+
+</div>
+
+</div>
+
+<p
+style="
+margin-top:10px;
+opacity:.8;
+">
+
+Investigation Progress: 94%
+
+</p>
 
 <br>
 
-<h3>
+<div
+style="
+display:inline-block;
+padding:12px 22px;
+background:rgba(255,70,70,.15);
+border:1px solid rgba(255,70,70,.4);
+border-radius:999px;
+font-weight:700;
+letter-spacing:1px;
+">
 
-STATUS:
-ACTIVE INVESTIGATION
+🚨 STATUS: ACTIVE INVESTIGATION
 
-</h3>
+</div>
 
 </div>
 
@@ -1391,22 +1827,61 @@ Nashita: 100%
 
 <h2 class="section-title">
 
-MEMORY TIMELINE™
+🕒 MEMORY TIMELINE™
 
 </h2>
 
 <div
-class="glass card"
 style="
-max-width:900px;
+max-width:800px;
 margin:auto;
+position:relative;
+padding-left:42px;
 ">
 
-<div style="margin-bottom:35px;">
+<!-- Vertical Line -->
+
+<div
+style="
+position:absolute;
+left:14px;
+top:8px;
+bottom:8px;
+width:3px;
+background:linear-gradient(
+180deg,
+#69b7ff,
+rgba(105,183,255,.15));
+border-radius:999px;
+">
+</div>
+
+<!-- 2022 -->
+
+<div
+class="glass card"
+style="
+position:relative;
+margin-bottom:28px;
+">
+
+<div
+style="
+position:absolute;
+left:-38px;
+top:28px;
+width:16px;
+height:16px;
+border-radius:50%;
+background:#69b7ff;
+box-shadow:
+0 0 18px #69b7ff;
+">
+</div>
 
 <h2>2022</h2>
 
-<p style="opacity:.8;margin-top:8px;">
+<p style="margin-top:10px;opacity:.82;line-height:1.8;">
 
 First documented memory irregularities.
 
@@ -1414,49 +1889,136 @@ First documented memory irregularities.
 
 </div>
 
-<div style="margin-bottom:35px;">
+<!-- 2023 -->
+
+<div
+class="glass card"
+style="
+position:relative;
+margin-bottom:28px;
+">
+
+<div
+style="
+position:absolute;
+left:-38px;
+top:28px;
+width:16px;
+height:16px;
+border-radius:50%;
+background:#69b7ff;
+box-shadow:
+0 0 18px #69b7ff;
+">
+</div>
 
 <h2>2023</h2>
 
-<p style="opacity:.8;margin-top:8px;">
+<p style="margin-top:10px;opacity:.82;line-height:1.8;">
 
-Witnesses become primary storage medium.
+Witnesses officially became the primary memory backup system.
 
 </p>
 
 </div>
 
-<div style="margin-bottom:35px;">
+<!-- 2024 -->
+
+<div
+class="glass card"
+style="
+position:relative;
+margin-bottom:28px;
+">
+
+<div
+style="
+position:absolute;
+left:-38px;
+top:28px;
+width:16px;
+height:16px;
+border-radius:50%;
+background:#69b7ff;
+box-shadow:
+0 0 18px #69b7ff;
+">
+</div>
 
 <h2>2024</h2>
 
-<p style="opacity:.8;margin-top:8px;">
+<p style="margin-top:10px;opacity:.82;line-height:1.8;">
 
-Goldfish comparisons officially begin.
+Goldfish comparisons officially approved by independent witnesses.
 
 </p>
 
 </div>
 
-<div style="margin-bottom:35px;">
+<!-- 2025 -->
+
+<div
+class="glass card"
+style="
+position:relative;
+margin-bottom:28px;
+">
+
+<div
+style="
+position:absolute;
+left:-38px;
+top:28px;
+width:16px;
+height:16px;
+border-radius:50%;
+background:#69b7ff;
+box-shadow:
+0 0 18px #69b7ff;
+">
+</div>
 
 <h2>2025</h2>
 
-<p style="opacity:.8;margin-top:8px;">
+<p style="margin-top:10px;opacity:.82;line-height:1.8;">
 
-Critical retention failure detected.
+Critical memory retention failure detected.
+
+Emergency witness deployment initiated.
 
 </p>
 
 </div>
 
-<div>
+<!-- 2026 -->
+
+<div
+class="glass card"
+style="
+position:relative;
+">
+
+<div
+style="
+position:absolute;
+left:-38px;
+top:28px;
+width:16px;
+height:16px;
+border-radius:50%;
+background:#69b7ff;
+box-shadow:
+0 0 18px #69b7ff;
+">
+</div>
 
 <h2>2026</h2>
 
-<p style="opacity:.8;margin-top:8px;">
+<p style="margin-top:10px;opacity:.82;line-height:1.8;">
 
-Nashita Pro Max™ launched publicly.
+Nashita Pro Max™ publicly released.
+
+Memory recovery remains unavailable.
 
 </p>
 
@@ -1465,7 +2027,6 @@ Nashita Pro Max™ launched publicly.
 </div>
 
 </section>
-
 
 
 <!-- NASHGPT -->
@@ -1526,13 +2087,14 @@ font-size:1.1rem;
 line-height:1.8;
 ">
 
-Awaiting query...
+Awaiting investigation...
 
 </div>
 
 </div>
 
 </section>
+
 
 <!-- GOLDFISH CERTIFICATION -->
 
@@ -1831,19 +2393,23 @@ They are no longer available.
 
 /* LOADER */
 
-const loadingMessages = [
+const loadingMessages=[
 
-"Loading Memories...",
+"Initializing NashitaOS™...",
 
-"Consulting Witnesses...",
+"Connecting to WitnessCloud™...",
 
-"Searching Archives...",
+"Recovering Deleted Memories...",
 
-"Reviewing Evidence...",
+"Reading CCTV Archives...",
 
-"No Memories Found...",
+"Consulting Goldfish Intelligence™...",
 
-"Launching Goldfish Mode..."
+"Scanning Group Chat Evidence...",
+
+"ERROR 404 : Memory Not Found",
+
+"Launching Nashita Pro Max™"
 
 ];
 
@@ -1851,13 +2417,32 @@ let loadIndex = 0;
 
 const loaderTimer = setInterval(()=>{
 
-document.getElementById(
-"status"
-).innerText =
-
-loadingMessages[
-loadIndex
+const progress=[
+8,
+19,
+34,
+52,
+71,
+88,
+99,
+100
 ];
+
+document.getElementById("status").innerHTML=
+
+loadingMessages[loadIndex]
+
++
+
+"<br><br><span style='opacity:.65'>"
+
++
+
+progress[loadIndex]
+
++
+
+"%</span>";
 
 loadIndex++;
 
@@ -1882,7 +2467,7 @@ document.getElementById(
 
 }
 
-},1200);
+},900);
 
 
 
@@ -2036,7 +2621,23 @@ output.innerHTML =
 
 function askGPT(){
 
-const responses = [
+const output=document.getElementById("answer");
+
+const steps=[
+
+"🔍 Searching WitnessCloud™...",
+
+"📱 Reading Group Chat Archives...",
+
+"📷 Checking CCTV Footage...",
+
+"🧠 Consulting Goldfish Intelligence...",
+
+"⚠ Comparing Witness Statements..."
+
+];
+
+const replies=[
 
 "Please consult witnesses.",
 
@@ -2050,30 +2651,47 @@ const responses = [
 
 "Timeline corrupted.",
 
-"Confidence remains high.",
-
 "Historical records unavailable.",
 
-"Witness statement accepted.",
+"Confidence remains high.",
 
-"Request denied due to lack of memory."
+"Subject insists nothing happened.",
+
+"Memory recovery failed successfully."
 
 ];
 
-document.getElementById(
-"answer"
-).innerHTML =
+let i=0;
 
-responses[
-Math.floor(
-Math.random()
-*
-responses.length
-)
-];
+output.innerHTML="";
+
+const timer=setInterval(()=>{
+
+if(i<steps.length){
+
+output.innerHTML+=steps[i]+"<br>";
+
+i++;
 
 }
 
+else{
+
+clearInterval(timer);
+
+setTimeout(()=>{
+
+output.innerHTML+="<br><br><b>FINAL RESULT</b><br><br>"+
+
+replies[Math.floor(Math.random()*replies.length)];
+
+},500);
+
+}
+
+},650);
+
+}
 
 
 /* DOSSIER UNLOCK */
@@ -2138,6 +2756,37 @@ behavior:"smooth"
 
 });
 
+/* AQUARIUM BUBBLES */
+
+setInterval(()=>{
+
+const container=document.querySelector(".bubble-container");
+
+if(!container) return;
+
+const bubble=document.createElement("div");
+
+bubble.className="bubble";
+
+const size=Math.random()*7+3;
+
+bubble.style.width=size+"px";
+
+bubble.style.height=size+"px";
+
+bubble.style.left=Math.random()*100+"%";
+
+bubble.style.animationDuration=(Math.random()*3+3)+"s";
+
+container.appendChild(bubble);
+
+setTimeout(()=>{
+
+bubble.remove();
+
+},6000);
+
+},450);
 
 
 /* SCROLL REVEAL */
@@ -2188,4 +2837,3 @@ observer.observe(el);
 
 </html>
 
-  
